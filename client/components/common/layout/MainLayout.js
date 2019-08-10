@@ -50,6 +50,8 @@ class MainLayout extends Component {
             <div className={classes.root}>
                 <div className={classes.appFrame}>
                     <Header navDrawerOpen={open} handleToggleDrawer={this.handleToggle}/>
+                    <MiniDrawer navDrawerOpen={open}/>
+
                     <main className={classes.content}>
                         {this.props.children}
                     </main>

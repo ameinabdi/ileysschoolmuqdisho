@@ -1,0 +1,328 @@
+{
+    "colors": [
+      {
+        "subject": "Biology",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },
+      {
+        "subject": "Physics",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },  {
+        "subject": "Somali",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },  {
+        "subject": "English",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },  {
+        "subject": "Maths",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },  {
+        "subject": "Geography",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      },  {
+        "subject": "Chemistry",
+        "class": "form 1",
+        "chapter": "chapter one",
+        "code": [
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            },
+            {
+              "title":"question is",
+              "body":"what is bio and also logy ?",
+              "answer":"bio is live and logy is study"
+            }
+          ]
+      }
+    ]
+  }

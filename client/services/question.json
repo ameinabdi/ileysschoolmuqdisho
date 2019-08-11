@@ -1,10 +1,11 @@
 {
     "questions": [
       {
+        "id":1,
         "class":"form 1",
         "section": [
           { 
-            "id":1,
+            "sectionid":1,
             "subject": "Biology",
             "class": "form 1",
             "chapter": "chapter one",
@@ -60,11 +61,11 @@
               ]
           },
           {
-            "id":2,
+            "sectionid":2,
             "subject": "Physics",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -115,11 +116,11 @@
               }
             ]
           },  {
-            "id":3,
+            "sectionid":3,
             "subject": "Somali",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -170,11 +171,11 @@
               }
             ]
           },  {
-            "id":4,
+            "sectionid":4,
             "subject": "English",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -225,11 +226,11 @@
               }
             ]
           },  {
-            "id":5,
+            "sectionid":5,
             "subject": "Maths",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -280,11 +281,11 @@
               }
             ]
           },  {
-            "id":6,
+            "sectionid":6,
             "subject": "Geography",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -335,11 +336,11 @@
               }
             ]
           },  {
-            "id":7,
+            "sectionid":7,
             "subject": "Chemistry",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -393,10 +394,11 @@
         ]
       },
       {
+        "id":2,
         "class":"form 2",
         "section": [
           { 
-            "id":1,
+            "sectionid":1,
             "subject": "Biology",
             "class": "form 2",
             "chapter": "chapter one",
@@ -452,11 +454,11 @@
               ]
           },
           {
-            "id":2,
+            "sectionid":2,
             "subject": "Physics",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -507,11 +509,11 @@
               }
             ]
           },  {
-            "id":3,
+            "sectionid":3,
             "subject": "Somali",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -562,11 +564,11 @@
               }
             ]
           },  {
-            "id":4,
+            "sectionid":4,
             "subject": "English",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -617,11 +619,11 @@
               }
             ]
           },  {
-            "id":5,
+            "sectionid":5,
             "subject": "Maths",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -672,11 +674,11 @@
               }
             ]
           },  {
-            "id":6,
+            "sectionid":6,
             "subject": "Geography",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",
@@ -727,11 +729,11 @@
               }
             ]
           },  {
-            "id":7,
+            "sectionid":7,
             "subject": "Chemistry",
             "class": "form 1",
             "chapter": "chapter one",
-            "code": [
+            "quiz": [
               {
                 "id":1,
                 "title":"question is",

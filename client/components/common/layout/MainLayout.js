@@ -4,7 +4,8 @@ import {withStyles} from '@material-ui/core/styles';
 
 // Import custom components
 import MiniDrawer from '../drawer/MiniDrawer';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import Classes from '../../dashboard/classes';
+import { Layout, Menu, Breadcrumb, Icon, Modal, Button } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -42,8 +43,33 @@ class MainLayout extends Component {
         this.state = {
             open: true,
             collapsed: true,
-
+            loading: false,
+            visible: false,
+      };
+      this.success.bind(this)
+    }
+    
+    showModal = () => {
+            this.setState({
+                visible: true,
+            });
+           
         };
+    
+      handleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+          this.setState({ loading: false, visible: false });
+        }, 3000);
+      };
+    
+      handleCancel = () => {
+        this.setState({ visible: false });
+      };
+    success = (data) => {
+           if(data.visible == true){
+            this.setState({ visible: false });
+           }
     }
     
       onCollapse = collapsed => {
@@ -56,6 +82,7 @@ class MainLayout extends Component {
     render() {
         let {open} = this.state;
         const classes = this.props.classes;
+        const { visible, loading } = this.state;
 
         return (
             <Layout style={{ minHeight: '100vh' }}>
@@ -102,18 +129,20 @@ class MainLayout extends Component {
                         </Menu>
                         </Sider>
                         <Layout>
-                        <Header style={{ background: '#fff', padding: 0 }} />
+                        <Header style={{ background: '#fff', padding: 0 }}>
+                        </Header>
                         <Content style={{ margin: '0 16px' }}>
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                            <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                            <Breadcrumb.Item>Questions</Breadcrumb.Item>
                             </Breadcrumb>
                             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                        {this.props.children}
-                        </div>
+                            {this.props.children}
+                            </div>
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>Ileys School ©2019 Created by amein abdi</Footer>
                         </Layout>
+                       
             </Layout>
         )
     }

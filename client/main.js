@@ -10,6 +10,7 @@ import {verifyToken} from './services/tokenService';
 import App from './containers/app/AppContainer';
 import 'antd/dist/antd.css';
 import '@atlaskit/css-reset';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const mountNode = document.getElementById('root');
 const theme = createMuiTheme({

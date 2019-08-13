@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import Questions from '../models/question.model';
+import Classes from '../models/class.model';
 import logger from '../config/winston';
 
 /**
@@ -11,19 +11,15 @@ import logger from '../config/winston';
  * @param {object} res
  * @returns {*}
  */
-export function addNewQuestion(req, res) {
-    const { title, subjectId, classId, body, marks } = req.body;
-    console.log("waa", subjectId)
-    Questions.forge({
-        title,
-        subjectId,
-        classId,
-        body,
-        marks
+export function addNewClass(req, res) {
+    const { className } = req.body;
+    console.log("waa", className)
+    Classes.forge({
+        className
     }, {hasTimestamps: false}).save()
-        .then(questions => res.json({
+        .then(classes => res.json({
                 success: true,
-                data: questions.toJSON()
+                data: classes.toJSON()
             })
         )
         .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
@@ -32,14 +28,13 @@ export function addNewQuestion(req, res) {
         );
 }
 
-export function findAllQuestion(req, res){
-    Questions.forge()
+export function findAllClass(req, res){
+    Classes.forge()
     .fetchAll()
-    .then(questions => res.json({
+    .then(classes => res.json({
             error: false,
-            data: questions.toJSON(),
-          
-        },  console.log("wee", questions.toJSON()))
+            data: classes.toJSON()
+        })
     )
     .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
             error: err
@@ -47,11 +42,11 @@ export function findAllQuestion(req, res){
     );
 }
 
-export function findByIdQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function findByIdClass(req, res) {
+    Classes.forge({classId: req.params.id})
         .fetch()
-        .then(questions => {
-            if (!questions) {
+        .then(classes => {
+            if (!classes) {
                 res.status(HttpStatus.NOT_FOUND).json({
                     error: true, data: {}
                 });
@@ -59,7 +54,7 @@ export function findByIdQuestion(req, res) {
             else {
                 res.json({
                     error: false,
-                    data: questions.toJSON()
+                    data: classes.toJSON()
                 });
             }
         })
@@ -69,22 +64,15 @@ export function findByIdQuestion(req, res) {
         );
 }
 
-export function updateQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function updateClass(req, res) {
+    Classes.forge({classId: req.params.id})
         .fetch({require: true})
-        .then(questions => questions.save({
-                title: req.body.title || classes.get('title'),
-                subjectId: req.body.subjectId || classes.get('subjectId'),
-                subjectName: req.body.subjectName || classes.get('subjectName'),
-                classId: req.body.classId || classes.get('classId'),
+        .then(classes => classes.save({
                 className: req.body.className || classes.get('className'),
-                body: req.body.body || classes.get('body'),
-                marks: req.body.marks || classes.get('marks'),
-                
             })
                 .then(() => res.json({
                         error: false,
-                        data: questions.toJSON()
+                        data: classes.toJSON()
                     })
                 )
                 .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
@@ -99,10 +87,10 @@ export function updateQuestion(req, res) {
         );
 }
 
-export function destroyQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function destroyClass(req, res) {
+    Classes.forge({classId: req.params.id})
         .fetch({require: true})
-        .then(questions => questions.destroy()
+        .then(classes => classes.destroy()
             .then(() => res.json({
                     error: false,
                     data: {message: 'User deleted successfully.'}

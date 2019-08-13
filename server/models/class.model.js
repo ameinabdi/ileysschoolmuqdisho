@@ -1,11 +1,11 @@
 import bookshelf from '../config/bookshelf';
 
-const TABLE_NAME = 'question';
+const TABLE_NAME = 'classes';
 
 /**
  * User model.
  */
-class Questions extends bookshelf.Model {
+class Classes extends bookshelf.Model {
 
     /**
      * Get table name.
@@ -20,7 +20,6 @@ class Questions extends bookshelf.Model {
     get hasTimestamps() {
         return true;
     }
- 
 }
 
-export default Questions;
+export default Classes;

@@ -1,5 +1,5 @@
 import express from 'express';
-import * as questionCtrl from '../controllers/question.controller';
+import * as subjectCtrl from '../controllers/subject.controller';
 import isAuthenticated from '../middlewares/authenticate';
 import validate from '../config/joi.validate';
 import schema from '../utils/validator';
@@ -119,8 +119,8 @@ router.route('/')
  *             $ref: '#/definitions/Error'
  */
 
-    .post(validate(schema.storeQuestion),(req, res) => {
-        questionCtrl.addNewQuestion(req, res);
+    .post(validate(schema.storeSubject),(req, res) => {
+        subjectCtrl.addNewSubject(req, res);
     })
 
     /**
@@ -144,7 +144,7 @@ router.route('/')
      */
 
     .get( (req, res) => {
-        questionCtrl.findAllQuestion(req, res);
+        subjectCtrl.findAllSubject(req, res);
     });
 
 
@@ -180,7 +180,7 @@ router.route('/:id')
  */
 
     .get( (req, res) => {
-        questionCtrl.findByIdQuestion(req, res);
+        subjectCtrl.findByIdSubject(req, res);
     })
 
     /**
@@ -219,7 +219,7 @@ router.route('/:id')
      */
 
     .put(isAuthenticated, (req, res) => {
-        questionCtrl.updateQuestion(req, res);
+        subjectCtrl.updateSubject(req, res);
     })
 
     /**
@@ -248,7 +248,7 @@ router.route('/:id')
      */
 
     .delete(isAuthenticated, (req, res) => {
-        questionCtrl.destroyQuestion(req, res);
+        subjectCtrl.destroySubject(req, res);
     });
 
 

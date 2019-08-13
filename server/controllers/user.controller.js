@@ -94,7 +94,7 @@ export function update(req, res) {
             })
                 .then(() => res.json({
                         error: false,
-                        data: user.toJSON()
+                        data: user.message
                     })
                 )
                 .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({

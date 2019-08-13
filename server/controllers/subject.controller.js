@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import Questions from '../models/question.model';
+import Subjects from '../models/subject.modal';
 import logger from '../config/winston';
 
 /**
@@ -11,19 +11,16 @@ import logger from '../config/winston';
  * @param {object} res
  * @returns {*}
  */
-export function addNewQuestion(req, res) {
-    const { title, subjectId, classId, body, marks } = req.body;
-    console.log("waa", subjectId)
-    Questions.forge({
-        title,
-        subjectId,
-        classId,
-        body,
-        marks
+export function addNewSubject(req, res) {
+    const { subjectName, classId } = req.body;
+    console.log("waa", subjectName)
+    Subjects.forge({
+        subjectName,
+        classId
     }, {hasTimestamps: false}).save()
-        .then(questions => res.json({
+        .then(classes => res.json({
                 success: true,
-                data: questions.toJSON()
+                data: classes.toJSON()
             })
         )
         .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
@@ -32,14 +29,13 @@ export function addNewQuestion(req, res) {
         );
 }
 
-export function findAllQuestion(req, res){
-    Questions.forge()
+export function findAllSubject(req, res){
+    Subjects.forge()
     .fetchAll()
-    .then(questions => res.json({
+    .then(classes => res.json({
             error: false,
-            data: questions.toJSON(),
-          
-        },  console.log("wee", questions.toJSON()))
+            data: classes.toJSON()
+        })
     )
     .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
             error: err
@@ -47,11 +43,11 @@ export function findAllQuestion(req, res){
     );
 }
 
-export function findByIdQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function findByIdSubject(req, res) {
+    Subjects.forge({subjectId: req.params.id})
         .fetch()
-        .then(questions => {
-            if (!questions) {
+        .then(classes => {
+            if (!classes) {
                 res.status(HttpStatus.NOT_FOUND).json({
                     error: true, data: {}
                 });
@@ -59,7 +55,7 @@ export function findByIdQuestion(req, res) {
             else {
                 res.json({
                     error: false,
-                    data: questions.toJSON()
+                    data: classes.toJSON()
                 });
             }
         })
@@ -69,22 +65,17 @@ export function findByIdQuestion(req, res) {
         );
 }
 
-export function updateQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function updateSubject(req, res) {
+    Subjects.forge({subjectId: req.params.id})
         .fetch({require: true})
-        .then(questions => questions.save({
-                title: req.body.title || classes.get('title'),
-                subjectId: req.body.subjectId || classes.get('subjectId'),
+        .then(classes => classes.save({
                 subjectName: req.body.subjectName || classes.get('subjectName'),
                 classId: req.body.classId || classes.get('classId'),
                 className: req.body.className || classes.get('className'),
-                body: req.body.body || classes.get('body'),
-                marks: req.body.marks || classes.get('marks'),
-                
             })
                 .then(() => res.json({
                         error: false,
-                        data: questions.toJSON()
+                        data: classes.toJSON()
                     })
                 )
                 .catch(err => res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
@@ -99,10 +90,10 @@ export function updateQuestion(req, res) {
         );
 }
 
-export function destroyQuestion(req, res) {
-    Questions.forge({Qid: req.params.id})
+export function destroySubject(req, res) {
+    Subjects.forge({subjectId: req.params.id})
         .fetch({require: true})
-        .then(questions => questions.destroy()
+        .then(classes => classes.destroy()
             .then(() => res.json({
                     error: false,
                     data: {message: 'User deleted successfully.'}

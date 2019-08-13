@@ -13,3 +13,18 @@ export const question = () => {
         })
     };
 };
+
+export const AddQuestion = (data) => {
+  const {title, subjectId, classId, marks, body} = data;
+  console.log("newdata", data)
+return dispatch => {
+    axios.post(API_URL + 'questions', {title, subjectId, classId, marks, body}).then((response) => {
+        console.log(response)
+        dispatch(questionSuccess(response.data));
+        history.push('/dashboard');
+    })
+        .catch((error) => {
+            dispatch(questionFailure(error.response));
+        });
+};
+};

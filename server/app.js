@@ -26,6 +26,7 @@ app.get('/swagger.json', (req, res) => {
 // Router
 app.use('/api', routes);
 
+
 // Landing page
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));

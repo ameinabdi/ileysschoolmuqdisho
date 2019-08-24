@@ -13,6 +13,7 @@ export const login = ({email, password}) => {
             dispatch(loginSuccess(response.data.token));
 
             setLocalStorage('token', response.data.token);
+            setLocalStorage('user', response.data.data);
 
             history.push('/dashboard');
         })

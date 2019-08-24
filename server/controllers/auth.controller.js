@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../models/user.model';
 import logger from '../config/winston';
+import connection from '../config/database'
 
 /**
  * Returns jwt token if valid email and password is provided
@@ -13,21 +14,25 @@ import logger from '../config/winston';
  */
 export function login(req, res) {
     const {email, password} = req.body;
-    User.query({
-        where: {email: email},
-    }).fetch().then(user => {
+    connection.query('SELECT * FROM users WHERE email = ?',email)
+    .then(user => {
         if (user) {
-            if (bcrypt.compareSync(password, user.get('password'))) {
+            if (bcrypt.compareSync(password, user[0].password) ) {
 
                 const token = jwt.sign({
-                    id: user.get('id'),
-                    email: user.get('email')
+                    id: user[0].id,
+                    email: user[0].email
                 }, process.env.TOKEN_SECRET_KEY);
 
                 res.json({
                     success: true,
                     token,
-                    email:  user.get('email')
+                    data: {
+                        first_name: user[0].first_name,
+                        last_name: user[0].last_name,
+                        email: user[0].email,
+                        
+                    }
                 });
             } else {
                 logger.log('error', 'Authentication failed. Invalid password.');

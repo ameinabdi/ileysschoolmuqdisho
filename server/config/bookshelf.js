@@ -1,4 +1,4 @@
-import bookshelf from 'bookshelf';
-import knex from './knex';
+// import bookshelf from 'bookshelf';
+// import knex from './knex';
 
-export default bookshelf(knex);
+// export default bookshelf(knex);

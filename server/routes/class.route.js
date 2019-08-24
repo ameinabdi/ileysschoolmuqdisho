@@ -218,7 +218,7 @@ router.route('/:id')
      *         description: Invalid user
      */
 
-    .put(isAuthenticated, (req, res) => {
+    .put((req, res) => {
         classCtrl.updateClass(req, res);
     })
 
@@ -247,7 +247,7 @@ router.route('/:id')
      *          description: "Invalid ID"
      */
 
-    .delete(isAuthenticated, (req, res) => {
+    .delete((req, res) => {
         classCtrl.destroyClass(req, res);
     });
 

@@ -1,4 +1,4 @@
-import knex from 'knex';
-import database from '../config/database';
+// import knex from 'knex';
+// import database from '../config/database';
 
-export default knex(database);
+// export default knex(database);

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form'
-import { withStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {Field, reduxForm} from 'redux-form'
+import {withStyles} from '@material-ui/core/styles';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 // Import custom components
@@ -37,14 +37,14 @@ const styles = {
 
 const SignUpForm = props => {
 
-    const { handleSubmit, onSubmit, classes } = props;
+    const {handleSubmit, onSubmit, classes} = props;
 
     return (
-        <div >
+        <div className={classes.root}>
             <Card className={classes.card}>
                 <CardHeader
                     className={classes.cardHeader}
-                    title="Registration Of New User"
+                    title="Sign Up"
                 />
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
@@ -82,6 +82,7 @@ const SignUpForm = props => {
                         <div className={classes.btnDiv}>
                             <Button className={classes.btn} type="submit" variant="contained" color="primary">Create New
                                 Account</Button>
+                            <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                         </div>
                     </form>
                 </CardContent>

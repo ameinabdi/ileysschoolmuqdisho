@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form'
-import { withStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {Field, reduxForm} from 'redux-form'
+import {withStyles} from '@material-ui/core/styles';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 // Import custom components
 import renderText from '../common/form/renderText';
+import CustomizedSnackbar from '../common/snakebar/CustomizedSnackbar';
 
 const styles = {
     root: {
@@ -35,40 +36,30 @@ const styles = {
     }
 };
 
-const SignUpForm = props => {
+const LoginForm = props => {
 
-    const { handleSubmit, onSubmit, classes } = props;
+    const {handleSubmit, onSubmit, classes, errorMessage} = props;
 
     return (
-        <div >
+        <div className={classes.root}>
             <Card className={classes.card}>
                 <CardHeader
                     className={classes.cardHeader}
-                    title="Registration Of New User"
+                    title="Login"
                 />
+                {errorMessage  &&
+                <CustomizedSnackbar
+                    variant="error"
+                    className={classes.margin}
+                    message={ errorMessage }
+                />}
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
                         <Field
                             type="text"
-                            name="first_name"
-                            component={renderText}
-                            label="First Name"
-
-                        />
-                        <br />
-                        <Field
-                            type="text"
-                            name="last_name"
-                            component={renderText}
-                            label="Last Name"
-
-                        />
-                        <br />
-                        <Field
-                            type="text"
                             name="email"
                             component={renderText}
-                            label="Email"
+                            label="Username"
                         />
                         <br />
                         <Field
@@ -80,8 +71,8 @@ const SignUpForm = props => {
                         />
                         <br />
                         <div className={classes.btnDiv}>
-                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Create New
-                                Account</Button>
+                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Login</Button>
+                            <p>Don't have an account? <Link to={'/signup'}>Create one</Link>.</p>
                         </div>
                     </form>
                 </CardContent>
@@ -91,12 +82,10 @@ const SignUpForm = props => {
     )
 };
 
-const validateSignUp = values => {
+const validateLogin = values => {
     const errors = {};
 
     const requiredFields = [
-        'first_name',
-        'last_name',
         'email',
         'password'
     ];
@@ -112,12 +101,12 @@ const validateSignUp = values => {
     return errors
 };
 
-SignUpForm.propTypes = {
+LoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired
 };
 
 export default reduxForm({
-    form: 'SignUpForm', // a unique identifier for this form
-    validate: validateSignUp // ←Callback function for client-side validation
-})(withStyles(styles)(SignUpForm))
+    form: 'LoginForm', // a unique identifier for this form
+    validate: validateLogin // ←Callback function for client-side validation
+})(withStyles(styles)(LoginForm))

@@ -132,7 +132,7 @@ class SubjectList extends Component {
                 <AvGroup>
                   <Label for="className">Subject Name</Label>
                   {/* dot notation for the name to access deep values. The shape is also the same in the submit callbacks */}
-                  <AvInput name="subjectName" id="street" validate={{ required: true }} value={editDate.SubjectName} />
+                  <AvInput name="subjectName" id="street" required value={editDate.SubjectName} />
                   {/* this only shows when there is an error, use reactstrap's FormFeedback if you want is to always be displayed */}
                   <AvFeedback>This is an error!</AvFeedback>
                 </AvGroup>
@@ -141,7 +141,7 @@ class SubjectList extends Component {
                 <AvGroup>
                   <Label for="className">Class Name</Label>
                   {/* dot notation for the name to access deep values. The shape is also the same in the submit callbacks */}
-                  <AvField type="select" name="select" helpMessage="select Class Name" validate={{ required: true }} >
+                  <AvField type="select" name="select" helpMessage="select Class Name">
                     <option value={editDate.classId} key={editDate.classId} selected>{editDate.className}</option>
 
                     {alldata ?

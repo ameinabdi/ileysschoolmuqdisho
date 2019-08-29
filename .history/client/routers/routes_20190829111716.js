@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 
 // Import routing components
-import { Route, Switch } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 // Import custom components
 import MainLayout from '../components/common/layout/MainLayout';
@@ -18,21 +18,20 @@ import Authentication from './Authentication';
 const Router = () => (
     <Fragment>
         <Switch>
-            <Route exact path="/" component={LoginForm} />
+            <Route exact path="/" component={LoginForm}/>
+            <Route path="/signup" component={SignUpForm}/>
 
             <MainLayout>
                 <Switch>
-                    <Route path="/signup" component={SignUpForm} />
-
-                    <Authentication path="/dashboard" component={Dashboard} />
-                    <Authentication path="/class" component={ClassList} />
-                    <Authentication path="/subject" component={SubjectList} />
-                    <Authentication path="/question" component={QuestionList} />
+                    <Authentication path="/dashboard" component={Dashboard}/>
+                    <Authentication path="/class" component={ClassList}/>
+                    <Authentication path="/subject" component={SubjectList}/>
+                    <Authentication path="/question" component={QuestionList}/>
 
                 </Switch>
             </MainLayout>
 
-            <Route component={NotFound} />
+            <Route component={NotFound}/>
         </Switch>
     </Fragment>
 );

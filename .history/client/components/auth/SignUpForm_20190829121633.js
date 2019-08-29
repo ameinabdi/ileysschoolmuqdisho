@@ -44,7 +44,7 @@ const SignUpForm = props => {
             <Card className={classes.card}>
                 <CardHeader
                     className={classes.cardHeader}
-                    title="Registration Of New User"
+                    title="Sign Up"
                 />
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
@@ -82,6 +82,7 @@ const SignUpForm = props => {
                         <div className={classes.btnDiv}>
                             <Button className={classes.btn} type="submit" variant="contained" color="primary">Create New
                                 Account</Button>
+                            <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                         </div>
                     </form>
                 </CardContent>

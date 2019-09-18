@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as questionService from '../../services/questionService';
+import * as examService from '../../services/examService';
 import { cyan, pink, purple, orange } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import { AddShoppingCart, ThumbUp, Assessment, Face } from '@material-ui/icons';
@@ -35,70 +36,8 @@ class Dashboard extends React.Component {
   }
 
   exportDoc = () => {
-    const doc = new Document();
-    const { items } = this.state;
-    let _value = []
-    items.map((item) => {
-
-      const paragraph = new Paragraph({
-        children: [
-          new TextRun({
-            text: '(' + item.marks + ':Marks)',
-            font: "Segoe UI",
-            size: 20,
-            bold: true,
-          })
-            .tab(),
-        ],
-
-        alignment: AlignmentType.RIGHT,
-      })
-      const paragraph2 = new Paragraph({
-        properties: {
-          lineNumberCountBy: 1,
-          lineNumberRestart: LineNumberRestartFormat.CONTINUOUS,
-        },
-        children: [
-          new TextRun({
-            text: item.body,
-            font: "Helvetica Neue",
-            size: 25,
-
-          })
-        ],
-        spacing: {
-          before: 100,
-          after: 100,
-        },
-        border: {
-
-          bottom: {
-            color: "#656565",
-            space: 2,
-            value: "single",
-            size: 2,
-          },
-        },
-
-      })
-      _value.push(paragraph, paragraph2)
-      return paragraph, paragraph2;
-    }),
-
-      console.log("valuesss", _value)
-    doc.addSection({
-      properties: {},
-      children: _value
-    });
-
-
-
-    Packer.toBuffer(doc).then((buffer) => {
-
-      var file = new File([buffer], "My Document.txt", { type: "text/plain;charset=utf-8" });
-      saveAs(file, "My Document.docx");
-
-    });
+    console.log(this.state.items)
+    this.props.exam.create(this.state.items)
   }
   showModal = (data) => {
     console.log(data)
@@ -221,7 +160,9 @@ const mapStateToProps = state => ({
 * Map the actions to props.
 */
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(Object.assign({}, questionService), dispatch)
+  actions: bindActionCreators(Object.assign({}, questionService), dispatch),
+  exam: bindActionCreators(Object.assign({}, examService), dispatch)
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

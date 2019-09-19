@@ -5,10 +5,13 @@ import { connect } from 'react-redux';
 import * as classService from '../../services/classService';
 import * as subjectService from '../../services/subjectService';
 import * as questionService from '../../services/questionService';
+import { EditorState, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 
 import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio, AvCheckboxGroup, AvCheckbox } from 'availity-reactstrap-validation';
 import { Button, Row, Col, Label, FormGroup } from 'reactstrap';
-import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 class Question extends Component {
@@ -21,8 +24,9 @@ class Question extends Component {
             errors: "",
             classdata: null,
             subjectdata: null,
-            question: null,
+            editorState: EditorState.createEmpty()
         };
+        this.onChange = (editorState) => this.setState({ editorState });
     }
 
     componentWillMount() {
@@ -45,7 +49,8 @@ class Question extends Component {
         console.log('values', values);
         if (errors.length === 0) {
             const { title, subjectId, classId, marks, } = values;
-            const body = this.state.question
+            const { editorState } = this.state
+            const body = draftToHtml(convertToRaw(editorState.getCurrentContent()))
             this.props.questions.AddQuestion({ title, subjectId, classId, marks, body })
             this.props.success({ 'visible': true })
         }
@@ -56,9 +61,16 @@ class Question extends Component {
         this.setState({ visible: false });
     };
 
+    onEditorStateChange = (editorState) => {
+        this.setState({
+            editorState,
+        });
+    };
+
     render() {
-        const { visible, loading, classdata, subjectdata, question } = this.state;
-        console.log("visible", classdata, subjectdata)
+        const { visible, loading, classdata, subjectdata, editorState } = this.state;
+        const body = draftToHtml(convertToRaw(editorState.getCurrentContent()))
+        console.log("heloozzz", body)
         return (
             <AvForm onSubmit={this.handleSubmit}>
                 <Row>
@@ -117,17 +129,16 @@ class Question extends Component {
                         </AvGroup>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <AvGroup>
-                            <Editor
-                                editorState={question}
-                                toolbarClassName="toolbarClassName"
-                                wrapperClassName="wrapperClassName"
-                                editorClassName="editorClassName"
-                            />
-                        </AvGroup>
-                    </Col>
+                <Row style={{ backgroundColor: "#E6E6E6", padding: 0, marginBottom: 10, }}>
+                    <Editor
+                        editorState={editorState}
+                        toolbarClassName="toolbarClassName"
+                        wrapperClassName="wrapperClassName"
+                        editorClassName="editorClassName"
+                        onEditorStateChange={this.onEditorStateChange}
+                        editorStyle={{ height: 400, paddingLeft: 10, paddingTop: 4, marginBottom: 19, }}
+
+                    />
                 </Row>
                 <Button color="primary">Save</Button>
                 {this.state.errors ?

@@ -45,7 +45,7 @@ export default {
             subjectId: Joi.string().required(),
             classId: Joi.string().required(),
             marks: Joi.string().required(),
-            body: Joi.string().required(),
+            body: Joi.any().required(),
 
         }
     },

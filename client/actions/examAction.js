@@ -4,14 +4,14 @@ import {
     EXAM_FAILURE,
 } from '../constants/actionType';
 
-export const questionSuccess = (data) => {
+export const examSuccess = (data) => {
     return {
         type: EXAM_SUCCESS,
         data
     };
 };
 
-export const questionFailure = (error) => {
+export const examFailure = (error) => {
     return {
         type: EXAM_FAILURE,
         error

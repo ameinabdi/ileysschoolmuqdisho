@@ -127,7 +127,7 @@ class Dashboard extends React.Component {
                 {this.state.items ?
                   this.state.items.map((data, key) => (
                     <Card title={data.title} key={key} extra={<Row>marks {data.marks} <Icon type="close" style={{ marginLeft: 10, }} onClick={() => this.remove(data.id)} /></Row>} bordered={false}>
-                      <p><span>{key}.</span>{data.body}</p>
+                      <p><span>{key}.</span>  <div style={{ backgroundColor: '#F5F5F5', borderRadius: 10, marginLeft: 10, padding: 20 }} contentEditable='true' dangerouslySetInnerHTML={{ __html: data.body }}></div></p>
                     </Card>
                   ))
 
